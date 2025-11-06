@@ -12,3 +12,5 @@ out/
 # OS
 Thumbs.db
 .DS_Store
+
+../lib/mysql-connector-j-9.5.0
