@@ -8,8 +8,8 @@ public class DatabaseConfig {
 
     public DatabaseConfig() {
         String host = getEnvOrDefault("DB_HOST", "localhost");
-        String port = getEnvOrDefault("DB_PORT", "3306");
-        String database = getEnvOrDefault("DB_NAME", "final_ipl_auction");
+        String port = getEnvOrDefault("DB_PORT", "3307");
+        String database = getEnvOrDefault("DB_NAME", "ipl_auction");
         this.username = getEnvOrDefault("DB_USER", "root");
         this.password = getEnvOrDefault("DB_PASSWORD", "");
         this.jdbcUrl = "jdbc:mysql://" + host + ":" + port + "/" + database + "?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC";

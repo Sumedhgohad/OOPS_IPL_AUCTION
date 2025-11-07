@@ -13,6 +13,7 @@ public class MainFrame extends JFrame {
     private PlayersPage playersPage;
     private TeamsPage teamsPage;
     private AuctionPage auctionPage;
+    private ChatPage chatPage;
     
     public MainFrame() {
         super("IPL Auction Management System");
@@ -25,6 +26,7 @@ public class MainFrame extends JFrame {
         playersPage = new PlayersPage();
         teamsPage = new TeamsPage();
         auctionPage = new AuctionPage();
+    chatPage = new ChatPage();
         
         // Setup CardLayout for page switching
         cardLayout = new CardLayout();
@@ -33,6 +35,7 @@ public class MainFrame extends JFrame {
         cardPanel.add(playersPage, "PLAYERS");
         cardPanel.add(teamsPage, "TEAMS");
         cardPanel.add(auctionPage, "AUCTION");
+    cardPanel.add(chatPage, "CHAT");
         
         // Create navigation sidebar
         JPanel navPanel = createNavigationPanel();
@@ -67,6 +70,8 @@ public class MainFrame extends JFrame {
         nav.add(createNavButton("🏏 Teams", "TEAMS"));
         nav.add(Box.createVerticalStrut(10));
         nav.add(createNavButton("🔨 Auction", "AUCTION"));
+    nav.add(Box.createVerticalStrut(10));
+    nav.add(createNavButton("💬 Chatbot", "CHAT"));
         
         nav.add(Box.createVerticalGlue());
         
@@ -95,6 +100,8 @@ public class MainFrame extends JFrame {
                 teamsPage.refresh();
             } else if (cardName.equals("AUCTION")) {
                 auctionPage.refresh();
+            } else if (cardName.equals("CHAT")) {
+                chatPage.focusInput();
             }
         });
         
