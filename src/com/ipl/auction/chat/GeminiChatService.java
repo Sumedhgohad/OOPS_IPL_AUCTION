@@ -20,7 +20,7 @@ import java.util.List;
 public class GeminiChatService {
 
     private static final String API_ROOT = "https://generativelanguage.googleapis.com/v1beta/models/";
-    private static final String DEFAULT_MODEL = "gemini-pro";
+    private static final String DEFAULT_MODEL = "gemini-2.5-pro";
 
     private final String apiKey;
     private final String model;
