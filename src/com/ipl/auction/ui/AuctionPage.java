@@ -168,8 +168,22 @@ public class AuctionPage extends JPanel {
             }
             
             // Process bid
-            if (team.addPlayer(player, bidAmount)) {
+            try {
+                // Update database: add player to team
+                teamDao.addPlayerToTeam(team.getId(), player.getId(), bidAmount);
+                
+                // Update database: reduce team budget
+                double newBudget = team.getBudget() - bidAmount;
+                teamDao.updateTeamBudget(team.getId(), newBudget);
+                
+                // Update database: change player status to SOLD
+                playerDao.updatePlayerStatus(player.getId(), PlayerStatus.SOLD);
+                
+                // Update local objects
+                team.addPlayer(player, bidAmount);
                 player.setStatus(PlayerStatus.SOLD);
+                
+                // Log the transaction
                 logArea.append(String.format("[%s] %s sold to %s for ₹%,.0f\n",
                     new java.util.Date().toString().substring(11, 19),
                     player.getName(), team.getName(), bidAmount));
@@ -181,6 +195,12 @@ public class AuctionPage extends JPanel {
                 
                 bidField.setText("");
                 refresh();
+                
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(this, 
+                    "Database error: " + ex.getMessage(),
+                    "Error", JOptionPane.ERROR_MESSAGE);
+                ex.printStackTrace();
             }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Please enter a valid bid amount!", 

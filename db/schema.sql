@@ -17,6 +17,15 @@ CREATE TABLE IF NOT EXISTS players (
   status ENUM('AVAILABLE','SOLD','UNSOLD') DEFAULT 'AVAILABLE'
 );
 
+CREATE TABLE IF NOT EXISTS team_players (
+  team_id INT NOT NULL,
+  player_id INT NOT NULL,
+  purchase_price DOUBLE NOT NULL,
+  PRIMARY KEY (team_id, player_id),
+  FOREIGN KEY (team_id) REFERENCES teams(id),
+  FOREIGN KEY (player_id) REFERENCES players(id)
+);
+
 -- Sample data (optional)
 INSERT INTO teams (id, name, budget) VALUES
   (1, 'Mumbai Indians', 90000000),

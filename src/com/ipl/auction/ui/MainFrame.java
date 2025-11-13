@@ -63,15 +63,15 @@ public class MainFrame extends JFrame {
         nav.add(title);
         nav.add(Box.createVerticalStrut(30));
         
-        nav.add(createNavButton("🏠 Dashboard", "DASHBOARD"));
+        nav.add(createNavButton("Dashboard", "DASHBOARD"));
         nav.add(Box.createVerticalStrut(10));
-        nav.add(createNavButton("👥 Players", "PLAYERS"));
+        nav.add(createNavButton("Players", "PLAYERS"));
         nav.add(Box.createVerticalStrut(10));
-        nav.add(createNavButton("🏏 Teams", "TEAMS"));
+        nav.add(createNavButton("Teams", "TEAMS"));
         nav.add(Box.createVerticalStrut(10));
-        nav.add(createNavButton("🔨 Auction", "AUCTION"));
+        nav.add(createNavButton("Auction", "AUCTION"));
     nav.add(Box.createVerticalStrut(10));
-    nav.add(createNavButton("💬 Chatbot", "CHAT"));
+    nav.add(createNavButton("Chatbot", "CHAT"));
         
         nav.add(Box.createVerticalGlue());
         

@@ -1,17 +1,101 @@
-﻿# Java
-target/
-out/
+﻿# Compiled class files
 *.class
+out/
+target/
+build/
 
-# IDEs
-.vscode/
+# Log files
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files (keep mysql connector in lib/)
+*.war
+*.nar
+*.ear
+*.zip
+*.tar.gz
+*.rar
+
+# Virtual machine crash logs
+hs_err_pid*
+replay_pid*
+
+# IDE specific files
+.idea/
 *.iml
-*.classpath
-*.project
+*.iws
+*.ipr
+.vscode/
+.settings/
+.project
+.classpath
 
-# OS
-Thumbs.db
+# Maven
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+dependency-reduced-pom.xml
+buildNumber.properties
+.mvn/timing.properties
+
+# Gradle
+.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+.gradletasknamecache
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Eclipse
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.loadpath
+.recommenders
+
+# OS specific
 .DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
 
-# Dependencies
-lib/
+# Sensitive information - DO NOT COMMIT
+*.env
+.env
+config.properties
+database.properties
+run.ps1
+setup-auction-fix.ps1
+
+# Backup files
+*.backup
+*.old
+
+# Temporary files
+temp/
+tmp/
+*.temp
+
+# Note: lib/ folder with MySQL connector should be committed
+# Keep the MySQL connector jar for the project to work
