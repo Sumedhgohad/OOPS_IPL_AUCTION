@@ -85,6 +85,8 @@ desktop.ini
 .env
 config.properties
 database.properties
+run.ps1
+setup-auction-fix.ps1
 
 # Backup files
 *.backup
