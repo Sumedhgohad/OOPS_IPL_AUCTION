@@ -104,7 +104,8 @@ public class TeamsPage extends JPanel {
     }
     
     private void showTeamDetails(Team team) {
-        List<Player> squad = team.getPlayers();
+        // Load players from database
+        List<Player> squad = teamDao.getTeamPlayers(team.getId());
         squadModel.setRowCount(0);
         
         for (Player p : squad) {

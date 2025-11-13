@@ -44,6 +44,26 @@ public class PlayerDao {
         }
         return players;
     }
+
+    /**
+     * Updates the status of a player in the database.
+     * @param playerId The ID of the player to update
+     * @param status The new status
+     */
+    public void updatePlayerStatus(int playerId, PlayerStatus status) {
+        String sql = "UPDATE players SET status = ? WHERE id = ?";
+        try (Connection conn = ConnectionManager.getInstance().getConnection();
+             PreparedStatement ps = conn.prepareStatement(sql)) {
+            ps.setString(1, status.name());
+            ps.setInt(2, playerId);
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected == 0) {
+                throw new RuntimeException("Failed to update player status - player not found");
+            }
+        } catch (SQLException ex) {
+            throw new RuntimeException("Failed to update player status in database", ex);
+        }
+    }
 }
 
 
